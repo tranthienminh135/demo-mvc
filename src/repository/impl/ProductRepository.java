@@ -8,19 +8,17 @@ import java.util.List;
 
 public class ProductRepository implements IProductRepository {
 
-    private final String STUDENT_PATH_FILE = "F:\\Codegym-dao-tao\\module-2\\demo-mvc\\demo-mvc\\src\\service\\product.txt";
+    private final String STUDENT_PATH_FILE = "src/service/product.txt";
 
     @Override
     public void save(Product product) {
         List<Product> products = readDataFromFile(STUDENT_PATH_FILE);
         products.add(product);
-//        FileService.writeProduct(STUDENT_PATH_FILE, products);
         writeToFile(STUDENT_PATH_FILE, products);
     }
 
     @Override
     public List<Product> findAll() {
-//        return FileService.readProduct(STUDENT_PATH_FILE);
         return readDataFromFile(STUDENT_PATH_FILE);
     }
 
